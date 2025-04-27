@@ -36,13 +36,16 @@ func main() {
 
 	houses, err := readCSV(inputPath)
 	if err != nil {
-		fmt.Println("Error reading CSV:", err)
+		fmt.Println("Failed to read input file.")
+		fmt.Printf("Reason: %v\n", err)
+		fmt.Println("Please make sure the file exists and is a properly formatted CSV.")
 		os.Exit(1)
 	}
 
 	err = writeJSONLines(outputPath, houses)
 	if err != nil {
-		fmt.Println("Error writing JSON Lines:", err)
+		fmt.Println("Failed to write output file.")
+		fmt.Printf("Reason: %v\n", err)
 		os.Exit(1)
 	}
 
